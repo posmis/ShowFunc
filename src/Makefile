@@ -13,6 +13,9 @@ all: $(TARGET)
 test: test.c stack.c
 	$(CC) test.c stack.c -o $(PREF_TARGET)test.out
 
+test2: test2.c stack.c dijkstra_algoritm.c
+	$(CC) test2.c stack.c dijkstra_algoritm.c -o $(PREF_TARGET)test2.out
+
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(PREF_TARGET)$(TARGET)
 

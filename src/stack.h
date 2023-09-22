@@ -1,12 +1,12 @@
 #ifndef STACK_H
 #define STACK_H
 
-struct alg_p{
+struct alg_p {
     double numb;
     int oper;
 };
 
-struct stack_p{
+struct stack_p {
     struct alg_p act;
     struct stack_p *next;
     struct stack_p *prev;

@@ -1,8 +1,9 @@
 #ifndef OPERATORS_H
 #define OPERATORS_H
 
+#define NO_OPERATOR 0
 #define PLUS 1
-#define MUNIS 2
+#define MINUS 2
 #define MULTI 3
 #define DIVID 4
 #define SQUREROOT 5
