@@ -6,12 +6,14 @@
 #define MINUS 2
 #define MULTI 3
 #define DIVID 4
-#define SQUREROOT 5
-#define SINUS 6
-#define COSINUS 7
-#define TANGENT 8
-#define COTANGENT 9
-#define LOGUS 10
+#define SINUS 5
+#define COSINUS 6
+#define TANGENT 7
+#define COTANGENT 8
+#define LOGUS 9
+#define SQUREROOT 10
 #define PARENT 11
+
+#define PARAMETR 20
 
 #endif

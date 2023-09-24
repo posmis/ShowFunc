@@ -16,5 +16,6 @@ struct stack_p *stack_init();
 void stack_push(struct stack_p *root, double n, int o);
 struct alg_p stack_pop(struct stack_p *root);
 void stack_destroy(struct stack_p *root);
+struct stack_p *stack_revers(struct stack_p *root);
 
 #endif

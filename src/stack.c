@@ -40,18 +40,26 @@ struct alg_p stack_pop(struct stack_p *root) {
         free(p);
     } else {
         elem.oper = -1;
+        elem.numb = 0;
     }
     return elem;
 }
 
+struct stack_p *stack_revers(struct stack_p *root) {
+    struct stack_p *new = stack_init();
+    struct alg_p temp;
+    do {
+        temp = stack_pop(root);
+        if (temp.oper != -1) stack_push(new, temp.numb, temp.oper);
+    } while (temp.oper != -1);
+    return new;
+}
+
 void stack_destroy(struct stack_p *root) {
-    if (root->next != NULL) {
-        struct stack_p *p = root;
-        while (p->next != NULL) {
-            p = p->next;
-        }
-        free(p);
-        stack_destroy(root);
+    struct stack_p *p = root;
+    while(p != NULL){
+        p=p->next;
+        free(root);
+        root = p;
     }
-    free(root);
 }
