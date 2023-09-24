@@ -4,7 +4,6 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
     struct stack_p *p = pole_note;
     struct stack_p *digits = stack_init();
     while (p != NULL) {
-        if (p == NULL) break;
         if (p->act.oper == NO_OPERATOR)
             stack_push(digits, p->act.numb, NO_OPERATOR);
         else if (p->act.oper == PARAMETR)
@@ -30,30 +29,29 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
                     break;
             }
             stack_push(digits, temp, NO_OPERATOR);
-        }
-        else {
+        } else {
             double temp;
             struct alg_p numb;
             numb = stack_pop(digits);
             switch (p->act.oper) {
                 case SINUS:
-                temp = sin(numb.numb);
-                break;
+                    temp = sin(numb.numb);
+                    break;
                 case COSINUS:
-                temp = cos(numb.numb);
-                break;
+                    temp = cos(numb.numb);
+                    break;
                 case TANGENT:
-                temp = tan(numb.numb);
-                break;
+                    temp = tan(numb.numb);
+                    break;
                 case COTANGENT:
-                temp = cos(numb.numb)/sin(numb.numb);
-                break;
+                    temp = cos(numb.numb) / sin(numb.numb);
+                    break;
                 case LOGUS:
-                temp = log(numb.numb);
-                break;
+                    temp = log(numb.numb);
+                    break;
                 case SQUREROOT:
-                temp = sqrt(numb.numb);
-                break;
+                    temp = sqrt(numb.numb);
+                    break;
             }
             stack_push(digits, temp, NO_OPERATOR);
         }

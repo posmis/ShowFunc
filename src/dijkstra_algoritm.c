@@ -21,7 +21,7 @@ struct stack_p *alg_dijkstra(char *str) {
     while (str[i] != '\0') {
         search_numb(pol_note, str, &i);
         search_base_operators(pol_note, oper_stack, str[i]);
-        search_operators(oper_stack, str, &i);
+        search_operators(oper_stack, str, i);
         search_parents(pol_note, oper_stack, str, &i);
         i++;
     }
@@ -48,7 +48,7 @@ void search_parents(struct stack_p *pol_note, struct stack_p *oper_stack, const 
         while (str[*i] != ')') {
             search_numb(pol_note, str, i);
             search_base_operators(pol_note, oper_stack, str[*i]);
-            search_operators(oper_stack, str, i);
+            search_operators(oper_stack, str, *i);
             search_parents(pol_note, oper_stack, str, i);
             (*i)++;
         }
@@ -79,17 +79,15 @@ void search_base_operators(struct stack_p *pol_note, struct stack_p *oper_stack,
     }
 }
 
-void search_operators(struct stack_p *oper_stack, const char *str, int *i) {
+void search_operators(struct stack_p *oper_stack, const char *str, const int i) {
     int operator= NO_OPERATOR;
-    if (str[*i] == 's' && str[(*i) + 1] == 'i' && str[(*i) + 2] == 'n') operator= SINUS;
-    if (str[*i] == 'c' && str[(*i) + 1] == 'o' && str[(*i) + 2] == 's') operator= COSINUS;
-    if (str[*i] == 't' && str[(*i) + 1] == 'a' && str[(*i) + 2] == 'n') operator= TANGENT;
-    if (str[*i] == 'c' && str[(*i) + 1] == 't' && str[(*i) + 2] == 'g') operator= COTANGENT;
-    if (str[*i] == 'l' && str[(*i) + 1] == 'o' && str[(*i) + 2] == 'g') operator= LOGUS;
-    if (str[*i] == 's' && str[(*i) + 1] == 'q' && str[(*i) + 2] == 'r' && str[(*i) + 3] == 't')
-        operator= SQUREROOT;
+    if (str[i] == 's' && str[i + 1] == 'i' && str[i + 2] == 'n') operator= SINUS;
+    if (str[i] == 'c' && str[i + 1] == 'o' && str[i + 2] == 's') operator= COSINUS;
+    if (str[i] == 't' && str[i + 1] == 'a' && str[i + 2] == 'n') operator= TANGENT;
+    if (str[i] == 'c' && str[i + 1] == 't' && str[i + 2] == 'g') operator= COTANGENT;
+    if (str[i] == 'l' && str[i + 1] == 'o' && str[i + 2] == 'g') operator= LOGUS;
+    if (str[i] == 's' && str[i + 1] == 'q' && str[i + 2] == 'r' && str[i + 3] == 't') operator= SQUREROOT;
     if (operator!= NO_OPERATOR) {
-        //(*i) += 2;
         stack_push(oper_stack, 0, operator);
     }
 }

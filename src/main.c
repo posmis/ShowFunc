@@ -12,7 +12,6 @@ int main() {
     fgets(str, MAX_STR_LEN, stdin);
 
     struct stack_p *new = alg_dijkstra(str);
-    // new = stack_revers(new);
 
     printf("-- %f --\n", pole_note_numb(new, 3));
 
