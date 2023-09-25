@@ -4,13 +4,13 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
     struct stack_p *p = pole_note;
     struct stack_p *digits = stack_init();
     while (p != NULL) {
+        double temp;
         if (p->act.oper == NO_OPERATOR)
-            stack_push(digits, p->act.numb, NO_OPERATOR);
+            temp = p->act.numb;
         else if (p->act.oper == PARAMETR)
-            stack_push(digits, x, NO_OPERATOR);
+            temp = x;
         else if (p->act.oper == PLUS || p->act.oper == MINUS || p->act.oper == MULTI ||
                  p->act.oper == DIVID) {
-            double temp;
             struct alg_p numb1, numb2;
             numb2 = stack_pop(digits);
             numb1 = stack_pop(digits);
@@ -28,9 +28,7 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
                     temp = numb1.numb / numb2.numb;
                     break;
             }
-            stack_push(digits, temp, NO_OPERATOR);
         } else {
-            double temp;
             struct alg_p numb;
             numb = stack_pop(digits);
             switch (p->act.oper) {
@@ -53,8 +51,8 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
                     temp = sqrt(numb.numb);
                     break;
             }
-            stack_push(digits, temp, NO_OPERATOR);
         }
+        stack_push(digits, temp, NO_OPERATOR);
         p = p->next;
     }
     struct alg_p result = stack_pop(digits);
