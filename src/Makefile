@@ -10,12 +10,6 @@ OBJ = $(patsubst $(PREF_SRC)%.c, $(PREF_OBJ)%.o, $(SRC))
 
 all: $(TARGET)
 
-#test: test.c stack.c
-#	$(CC) test.c stack.c -o $(PREF_TARGET)test.out
-#
-#test2: test2.c stack.c dijkstra_algoritm.c pol_note_count.c
-#	$(CC) test2.c stack.c dijkstra_algoritm.c pol_note_count.c -o $(PREF_TARGET)test2.out -lm
-
 $(TARGET): $(OBJ)
 	$(CC) $(OBJ) -o $(PREF_TARGET)$(TARGET) -lm
 
