@@ -58,6 +58,6 @@ double pole_note_numb(struct stack_p *pole_note, double x) {
         p = p->next;
     }
     struct alg_p result = stack_pop(digits);
-    free(digits);
+    stack_destroy(digits);
     return result.numb;
 }

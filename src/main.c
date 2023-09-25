@@ -10,9 +10,7 @@ int main() {
     char str[MAX_STR_LEN];
     fgets(str, MAX_STR_LEN, stdin);
     struct stack_p *new = alg_dijkstra(str);
-
     output(new);
-
     stack_destroy(new);
     return 0;
 }

@@ -24,3 +24,6 @@ clang:
 
 cpp:
 	cppcheck --enable=all --suppress=missingIncludeSystem $(PREF_SRC)$(SRC)
+
+leaks:
+	valgrind --tool=memcheck --leak-check=yes $(PREF_TARGET)$(TARGET)
