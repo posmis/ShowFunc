@@ -9,7 +9,9 @@ int operator_priority(int oper) {
     int prior = -1;
     if (oper == PLUS || oper == MINUS) prior = 1;
     if (oper == MULTI || oper == DIVID) prior = 2;
-    if (oper == SINUS || oper == COSINUS || oper == TANGENT || oper == COTANGENT) prior = 3;
+    if (oper == SINUS || oper == COSINUS || oper == TANGENT || oper == COTANGENT || oper == LOGUS ||
+        oper == SQUREROOT)
+        prior = 3;
     if (oper == PARENT) prior = 0;
     return prior;
 }

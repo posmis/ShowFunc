@@ -7,6 +7,7 @@
 #include "pol_note_count.h"
 #include "stack.h"
 
+void str_converter(char *str);
 void output(struct stack_p *root);
 
 #endif

@@ -1,5 +1,23 @@
 #include "func_output.h"
 
+void str_converter(char *str) {
+    char new_str[MAX_STR_LEN];
+    for (int i = 0, j = 0; str[i] != '\0'; i++, j++) {
+        if (i == 0 && str[i] == '-') {
+            new_str[j] = '0';
+            j++;
+        }
+        if (str[i] == '-' && (str[i - 1] == '(') && i != 0) {
+            new_str[j] = '0';
+            j++;
+        }
+        new_str[j] = str[i];
+    }
+    for (int i = 0; new_str[i] != '\0'; i++) {
+        str[i] = new_str[i];
+    }
+}
+
 void output(struct stack_p *root) {
     double x = DOMAIN_MIN;
     double x_p[SIZE_X];

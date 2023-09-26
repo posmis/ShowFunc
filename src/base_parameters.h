@@ -6,6 +6,7 @@
 #define MAX_STR_LEN 1000
 
 #define PI 3.14159265358979323846
+
 #define DOMAIN_MIN -1 * PI
 #define DOMAIN_MAX 1 * PI
 
